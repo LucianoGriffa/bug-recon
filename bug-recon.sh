@@ -32,7 +32,7 @@ while getopts "m:ui:y:d:o:s:h" arg; do
 done
 
 if [ $parameter_counter -eq 1 ]; then
-  # searchMachine $machineName
+  settings-program $
 # elif [ $parameter_counter -eq 6 ]; then
 #   searchOs $os
 # elif [ $chivato_difficulty -eq 1 ] && [ $chivato_os -eq 1 ]; then
