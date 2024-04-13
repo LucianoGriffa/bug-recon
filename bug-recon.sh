@@ -41,9 +41,12 @@ function ctrl_c(){
 
 function helpPanel(){
 	echo -e "\n${yellowColour}[*]${endColour}${grayColour} Uso: ./bug-recon.sh${endColour}"
-	echo -e "\t${greenColour}a)${endColour}${whiteColour} Analytics and Technology${endColour}"
-	echo -e "\n${greenColour}s)${endColour}${whiteColour} Subdomain Enumeration${endColour}"
-	echo -e "\t${greenColour}h)${endColour}${whiteColour} Mostrar este panel de ayuda${endColour}\n"
+	echo -e "\n\t${greenColour}-h or --help)${endColour}${whiteColour} Mostrar este panel de ayuda${endColour}\n"
+	echo -e "\t${greenColour}-a or --history${endColour}${whiteColour} Acquisitions and Company History${endColour}"
+	echo -e "\t${greenColour}-t or --tech${endColour}${whiteColour} Analytics and Technology${endColour}"
+	echo -e "\t${greenColour}-s or --subdomain${endColour}${whiteColour} Subdomain Enumeration${endColour}"
+	echo -e "\t${greenColour}-c or --cdiscovery${endColour}${whiteColour} Content Discovery${endColour}"
+  echo -e "\t${greenColour}-p or --pscanning${endColour}${whiteColour} Port Scanning${endColour}"
 	exit 0
 }
 
