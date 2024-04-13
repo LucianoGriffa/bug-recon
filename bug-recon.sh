@@ -5,6 +5,7 @@
 #Import functions 
 source functions/banner.sh
 source functions/helpPanel.sh
+source functions/start-recon.sh
 
 #Colours
 endColour="\033[0m\e[0m"
@@ -17,7 +18,7 @@ turquoiseColour="\e[0;36m\033[1m"
 whiteColour="\e[0;37m\033[1m"
 
 function ctrl_c() {
-  echo -e "\n${yellowColour}[!]${endColour}${grayColour} Exit...${endColour}\n"
+  echo -e "\n\n${yellowColour}[!]${endColour}${grayColour} Exit...${endColour}\n"
   tput cnorm && exit 1
 }
 
@@ -25,14 +26,17 @@ trap ctrl_c INT
 
 declare -i parameter_counter=0
 
+banner
+
 while getopts "m:ui:y:d:o:s:h" arg; do
   case $arg in
+    s) platformName="$OPTARG"; companyName="$3"; let parameter_counter+=1;;
     h) ;;
   esac
 done
 
 if [ $parameter_counter -eq 1 ]; then
-  settings-program $
+  startRecon "$platformName" "$companyName"
 # elif [ $parameter_counter -eq 6 ]; then
 #   searchOs $os
 # elif [ $chivato_difficulty -eq 1 ] && [ $chivato_os -eq 1 ]; then
@@ -42,4 +46,3 @@ if [ $parameter_counter -eq 1 ]; then
 else
   helpPanel
 fi
-bug-recon.sh  
