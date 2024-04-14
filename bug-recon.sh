@@ -28,15 +28,15 @@ declare -i parameter_counter=0
 
 banner
 
-while getopts "m:ui:y:d:o:s:h" arg; do
+while getopts "s:h" arg; do
   case $arg in
-    s) platformName="$OPTARG"; companyName="$3"; let parameter_counter+=1;;
+    s) platformName="$OPTARG"; companyName="$3"; targets="$4"; let parameter_counter+=1;;
     h) ;;
   esac
 done
 
 if [ $parameter_counter -eq 1 ]; then
-  startRecon "$platformName" "$companyName"
+  startRecon "$platformName" "$companyName" "$targets"
 # elif [ $parameter_counter -eq 6 ]; then
 #   searchOs $os
 # elif [ $chivato_difficulty -eq 1 ] && [ $chivato_os -eq 1 ]; then

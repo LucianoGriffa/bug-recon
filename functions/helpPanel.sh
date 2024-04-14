@@ -8,13 +8,8 @@ whiteColour="\e[0;37m\033[1m"
 
 function helpPanel(){
 	echo -e "\n${yellowColour}[*]${endColour}${whiteColour} Use: ./bug-recon.sh${endColour}"
-	echo -e "\n\t${greenColour}[ -h ] ->${endColour}${whiteColour} Show this help panel${endColour}"
-	echo -e "\t${greenColour}[ -i ] ->${endColour}${whiteColour} Install requirements${endColour}\n"
-	echo -e "\t${greenColour}[ -a ] ->${endColour}${whiteColour} Acquisitions and Company History${endColour}"
-	echo -e "\t${greenColour}[ -t ] ->${endColour}${whiteColour} Analytics and Technology${endColour}"
-	echo -e "\t${greenColour}[ -s ] ->${endColour}${whiteColour} Subdomain Enumeration${endColour}"
-  echo -e "\t${greenColour}[ -u ] ->${endColour}${whiteColour} Subdomain Takeover${endColour}"
-	echo -e "\t${greenColour}[ -c ] ->${endColour}${whiteColour} Content Discovery${endColour}"
-  echo -e "\t${greenColour}[ -p ] ->${endColour}${whiteColour} Port Scanning${endColour}"
+	echo -e "\n\t${greenColour}-h ->${endColour}${whiteColour} Show this help panel${endColour}"
+	echo -e "\t${greenColour}-i ->${endColour}${whiteColour} Install requirements${endColour}"
+	echo -e "\n\t${greenColour}-s \"Bounty Platform\" \"Company Name\" \"Domain Targets (One or More)\" ->${endColour}${whiteColour} Starting RECON config${endColour}"
 	exit 0
 }
