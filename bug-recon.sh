@@ -17,6 +17,9 @@ purpleColour="\e[0;35m\033[1m"
 turquoiseColour="\e[0;36m\033[1m"
 whiteColour="\e[0;37m\033[1m"
 
+# Bot Telegram
+url="https://api.telegram.org/bot$BOT_TELEGRAM/sendMessage"
+
 function ctrl_c() {
   echo -e "\n\n${yellowColour}[!]${endColour}${grayColour} Exit...${endColour}\n"
   tput cnorm && exit 1
@@ -36,8 +39,8 @@ while getopts "s:h" arg; do
 done
 
 if [ $parameter_counter -eq 1 ]; then
-  startRecon "$platformName" "$companyName" "$targets"
-# elif [ $parameter_counter -eq 6 ]; then
+  startRecon "$url" "$platformName" "$companyName" "$targets"
+#elif [ $parameter_counter -eq 6 ]; then
 #   searchOs $os
 # elif [ $chivato_difficulty -eq 1 ] && [ $chivato_os -eq 1 ]; then
 #   searchOsAndDiff $difficulty $os
