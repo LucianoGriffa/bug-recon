@@ -44,8 +44,8 @@ function startRecon() {
       echo -e "\nTargets:" >> "$dir_path/general-info.txt"
       echo "$(echo $targets | sed -r 's/ /\n/g')" >> "$dir_path/general-info.txt"
       echo "$(echo $targets | sed -r 's/ /\n/g')" >> "$dir_path/domains.txt"
-      bat -A "$dir_path/general-info.txt"
-      message="[ ! ] ¡NEW RECON INIT!
+      bat -A "${dir_path}/general-info.txt"
+      message="[ + ] ¡NEW RECON INIT!
 Company Name: ${companyName}
 Bug Program: ${platformName}
 Link Bug Program: https://${platformSyntax}.com/$(echo $companySyntax | tr '[:upper:]' '[:lower:]')"
