@@ -11,5 +11,6 @@ function helpPanel(){
 	echo -e "\n\t${greenColour}-h ->${endColour}${whiteColour} Show this help panel${endColour}"
 	echo -e "\t${greenColour}-i ->${endColour}${whiteColour} Install requirements${endColour}"
 	echo -e "\n\t${greenColour}-s \"Bounty Platform\" \"Company Name\" \"Domain Targets (One or More)\" ->${endColour}${whiteColour} Starting RECON config${endColour}"
+	echo -e "\n\t${greenColour}-a \"Company Name\" ->${endColour}${whiteColour} Get Subdomains${endColour}"
 	exit 0
 }
