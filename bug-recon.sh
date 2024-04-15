@@ -6,6 +6,7 @@
 source functions/banner.sh
 source functions/helpPanel.sh
 source functions/start-recon.sh
+source functions/getSubdomains.sh
 
 #Colours
 endColour="\033[0m\e[0m"
@@ -31,16 +32,18 @@ declare -i parameter_counter=0
 
 banner
 
-while getopts "s:h" arg; do
+while getopts "s:a:h" arg; do
   case $arg in
     s) platformName="$OPTARG"; companyName="$3"; targets="$4"; let parameter_counter+=1;;
+    a) companyName="$OPTARG"; let parameter_counter+=2;;
     h) ;;
   esac
 done
 
 if [ $parameter_counter -eq 1 ]; then
   startRecon "$url" "$platformName" "$companyName" "$targets"
-#elif [ $parameter_counter -eq 6 ]; then
+elif [ $parameter_counter -eq 2 ]; then
+  getSubdomains "$url" "$companyName"
 #   searchOs $os
 # elif [ $chivato_difficulty -eq 1 ] && [ $chivato_os -eq 1 ]; then
 #   searchOsAndDiff $difficulty $os

@@ -43,11 +43,12 @@ function startRecon() {
       echo "https://www.google.com/search?q=$(echo $companySyntax | tr '[:upper:]' '[:lower:]')" >> "$dir_path/general-info.txt"
       echo -e "\nTargets:" >> "$dir_path/general-info.txt"
       echo "$(echo $targets | sed -r 's/ /\n/g')" >> "$dir_path/general-info.txt"
-      bat -A "$dir_path/general-info.txt"
-      message="[ ! ] ¡NEW RECON INIT!
-      Company Name: ${companyName}
-      Bug Program: ${platformName}
-      Link Bug Program: https://hackerone.com/$(echo $companySyntax | tr '[:upper:]' '[:lower:]')"
+      echo "$(echo $targets | sed -r 's/ /\n/g')" >> "$dir_path/domains.txt"
+      bat -A "${dir_path}/general-info.txt"
+      message="[ + ] ¡NEW RECON INIT!
+Company Name: ${companyName}
+Bug Program: ${platformName}
+Link Bug Program: https://${platformSyntax}.com/$(echo $companySyntax | tr '[:upper:]' '[:lower:]')"
       curl --silent --output /dev/null -F chat_id="$CHAT_ID" -F "text=$message" $urlTelgram -X POST
       sleep 1
       tput cnorm
