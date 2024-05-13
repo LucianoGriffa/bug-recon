@@ -2,11 +2,9 @@
 
 # Author: G3kSec - ¡Happy RECON!
 
-#Import functions 
 source functions/banner.sh
 source functions/helpPanel.sh
-source functions/start-recon.sh
-source functions/getSubdomains.sh
+source functions/subdomainEnum.sh
 
 #Colours
 endColour="\033[0m\e[0m"
@@ -30,25 +28,23 @@ trap ctrl_c INT
 
 declare -i parameter_counter=0
 
-banner
+# banner
 
-while getopts "s:a:h" arg; do
+while getopts "s" arg; do
   case $arg in
-    s) platformName="$OPTARG"; companyName="$3"; targets="$4"; let parameter_counter+=1;;
-    a) companyName="$OPTARG"; let parameter_counter+=2;;
-    h) ;;
+    s) let parameter_counter+=1;;
+    # a) companyName="$OPTARG"; let parameter_counter+=2;;
+    # c) companyName="$OPTARG"; let parameter_counter+=3;;
+    # h) ;;
   esac
 done
 
 if [ $parameter_counter -eq 1 ]; then
-  startRecon "$url" "$platformName" "$companyName" "$targets"
-elif [ $parameter_counter -eq 2 ]; then
-  getSubdomains "$url" "$companyName"
-#   searchOs $os
-# elif [ $chivato_difficulty -eq 1 ] && [ $chivato_os -eq 1 ]; then
-#   searchOsAndDiff $difficulty $os
-# elif [ $parameter_counter -eq 7 ]; then
-#   searchSkill "$skill"
-else
-  helpPanel
+  startRecon
+# elif [ $parameter_counter -eq 2 ]; then
+#   getSubdomains "$url" "$companyName"
+# elif [ $parameter_counter -eq 3 ]; then
+#   getContentDiscovery "$companyName"
+# else
+#   helpPanel
 fi
