@@ -10,11 +10,12 @@ whiteColour="\e[0;37m\033[1m"
 function startRecon() {
   tput civis
     if [ -z "$2" ] || [ -z "$3" ]; then
-      echo "Error: You must provide both a company name and a bug program name as arguments."
+      echo -e "${redColour}[Error]${endColour} ${whiteColour}You must provide both a company name and a bug program name as arguments.${endColour}"
     else
       urlTelgram="$1"
       companyName="$2"
       platformName="$3"
+      echo -e "${yellowColour}[+]${endColour} ${whiteColour}Running startRecon${endColour}"
       mkdir ~/BugBounty/${companyName} && touch ~/BugBounty/${companyName}/domains.txt
       message="[ ! ] ¡NEW RECON INIT!
       Company: ${companyName}
@@ -24,6 +25,7 @@ function startRecon() {
       "
       curl --silent --output /dev/null -F chat_id="$CHAT_ID" -F "text=$message" $urlTelgram -X POST
       sleep 1
+      echo -e "${greenColour}[Complete]${endColour} ${whiteColour}startRecon was carried out successfully${endColour}"
     fi
   tput cnorm
 }
