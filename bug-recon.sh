@@ -4,6 +4,7 @@
 
 source functions/banner.sh
 source functions/helpPanel.sh
+source functions/startRecon.sh
 source functions/subdomainEnum.sh
 
 #Colours
@@ -28,23 +29,22 @@ trap ctrl_c INT
 
 declare -i parameter_counter=0
 
-# banner
+banner
 
-while getopts "s" arg; do
+while getopts "i:s:h" arg; do
   case $arg in
-    s) let parameter_counter+=1;;
-    # a) companyName="$OPTARG"; let parameter_counter+=2;;
-    # c) companyName="$OPTARG"; let parameter_counter+=3;;
-    # h) ;;
+    i) companyName="$OPTARG"; platformName="$3"; let parameter_counter+=1;;
+    s) companyName="$OPTARG"; let parameter_counter+=2;;
+    h) ;;
   esac
 done
 
 if [ $parameter_counter -eq 1 ]; then
-  startRecon
-# elif [ $parameter_counter -eq 2 ]; then
-#   getSubdomains "$url" "$companyName"
+  startRecon "$url" "$companyName" "$platformName"
+elif [ $parameter_counter -eq 2 ]; then
+  subdomainEnum "$url" "$companyName"
 # elif [ $parameter_counter -eq 3 ]; then
 #   getContentDiscovery "$companyName"
-# else
-#   helpPanel
+else
+  helpPanel
 fi
